@@ -28,7 +28,7 @@ can be constructed from some set of bricks.
 To run this project you need to install:
 
 - <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">Java 11</a> or above
-- <a href="http://maven.apache.org/download.cgi"> Maven 3.6.3
+- <a href="http://maven.apache.org/download.cgi"> Maven 3.6.3</a>
 
 Add this project to your IDE as Maven project.
 

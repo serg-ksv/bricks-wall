@@ -4,8 +4,11 @@ import com.ksv.service.impl.FileServiceImpl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class ConsoleHandler {
+    private static final Pattern DATA_PATTERN = Pattern.compile("([0-9]*\\)*\\(*\\s*)+");
+
     public String getUsersChoice() {
         var in = new Scanner(System.in);
         return in.next();
@@ -33,6 +36,11 @@ public class ConsoleHandler {
             }
             default: System.exit(0);
         }
+        for (var line : data) {
+            if (!isCorrectDataFormat(line)) {
+                throw new IllegalArgumentException("Incorrect data!");
+            }
+        }
         return data;
     }
 
@@ -47,5 +55,9 @@ public class ConsoleHandler {
         System.out.println(isEnoughBricks
                 ? "yes"
                 : "no");
+    }
+
+    private boolean isCorrectDataFormat(String data) {
+        return DATA_PATTERN.matcher(data).matches();
     }
 }

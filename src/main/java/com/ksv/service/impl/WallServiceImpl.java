@@ -28,20 +28,22 @@ public class WallServiceImpl implements WallService {
     }
 
     public boolean isEnoughBricks(List<Integer> bricks, List<Integer> wallParts) {
-        var wallSize = wallParts.stream().reduce(0, Integer::sum);
-        for (int i = 0; i < bricks.size(); i++) {
-            var currentBrick = bricks.get(i);
+        ArrayList<Integer> bricksCopy = new ArrayList<>(bricks);
+        ArrayList<Integer> wallPartsCopy = new ArrayList<>(wallParts);
+        var wallSize = wallPartsCopy.stream().reduce(0, Integer::sum);
+        for (int i = 0; i < bricksCopy.size(); i++) {
+            var currentBrick = bricksCopy.get(i);
             if (currentBrick > 0) {
-                for (int j = 0; j < wallParts.size(); j++) {
-                    var currentWallPart = wallParts.get(j);
+                for (int j = 0; j < wallPartsCopy.size(); j++) {
+                    var currentWallPart = wallPartsCopy.get(j);
                     if (currentBrick <= currentWallPart) {
-                        wallParts.set(j, currentWallPart - currentBrick);
-                        bricks.set(i, 0);
+                        wallPartsCopy.set(j, currentWallPart - currentBrick);
+                        bricksCopy.set(i, 0);
                         wallSize -= currentBrick;
                         if (wallSize == 0) {
                             return true;
                         } else {
-                            return isEnoughBricks(bricks, wallParts);
+                            return isEnoughBricks(bricksCopy, wallPartsCopy);
                         }
                     }
                 }

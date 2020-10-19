@@ -8,9 +8,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class DataParserServiceImpl implements DataParserService {
-    public static final int WIDTH = 0;
-    public static final int HEIGHT = 1;
-    public static final int NUMBER_OF_BRICKS = 2;
+    private static final int WIDTH = 0;
+    private static final int HEIGHT = 1;
+    private static final int NUMBER_OF_BRICKS = 2;
 
     @Override
     public Wall parseWall(List<String> inputLines) {

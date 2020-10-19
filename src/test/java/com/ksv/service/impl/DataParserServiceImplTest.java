@@ -34,8 +34,8 @@ public class DataParserServiceImplTest {
 
     @Test
     public void parseBricksOk() {
-        Brick brick1 = new Brick(1, 1);
-        Brick brick2 = new Brick(2, 1);
+        var brick1 = new Brick(1, 1);
+        var brick2 = new Brick(2, 1);
         Map<Brick, Integer> expected = Map.of(brick1, 4, brick2, 6);
         Map<Brick, Integer> actual = dataParserService
                 .parseBricks(List.of("2", "1 1 4", "2 1 6"));

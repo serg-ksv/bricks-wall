@@ -20,7 +20,7 @@ public class FileServiceImplTest {
 
     @Test
     public void readFileRelativePath() {
-        Path path = Paths.get(FILE_PATH);
+        var path = Paths.get(FILE_PATH);
         Assert.assertTrue(Files.exists(path));
     }
 
@@ -34,7 +34,7 @@ public class FileServiceImplTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void readFileWrongPath() {
-        String pathFile = "src/test/wrong-path/test.txt";
+        var pathFile = "src/test/wrong-path/test.txt";
         fileService.readFile(pathFile);
     }
 

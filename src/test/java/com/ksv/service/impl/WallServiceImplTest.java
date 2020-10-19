@@ -30,15 +30,13 @@ public class WallServiceImplTest {
     public void isEnoughBricksOk() {
         List<Integer> filteredBricks = List.of(2, 2, 2, 2, 2, 2, 1, 1, 1, 1);
         List<Integer> wallParts = List.of(1, 2, 1, 6, 6);
-        boolean enoughBricks = wallService.isEnoughBricks(filteredBricks, wallParts);
-        Assert.assertTrue(enoughBricks);
+        Assert.assertTrue(wallService.isEnoughBricks(filteredBricks, wallParts));
     }
 
     @Test
     public void isNotEnoughBricksOk() {
         List<Integer> filteredBricks = List.of(2, 2, 2, 2, 2, 1, 1, 1, 1);
         List<Integer> wallParts = List.of(1, 2, 1, 6, 6);
-        boolean enoughBricks = wallService.isEnoughBricks(filteredBricks, wallParts);
-        Assert.assertFalse(enoughBricks);
+        Assert.assertFalse(wallService.isEnoughBricks(filteredBricks, wallParts));
     }
 }
